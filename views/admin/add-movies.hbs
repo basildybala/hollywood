@@ -1,0 +1,222 @@
+<title>Add Movies</title>
+<style>
+    .add-movies-form-section{
+    margin-top: 10px;
+}
+.movies-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 10px;
+}
+.fm-details{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.input-section{
+    margin: 5px;
+}
+.input-section input {
+    height: 25px;
+    width: 250px;
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+    margin: 5px;
+}
+textarea{
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+}
+.movies-form button{
+    background-color: red;
+    color: white;
+    width: 113px;
+    height: 32px;
+    border-radius: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 7px;
+}
+.nav-swiper{display: flex;}
+ .nav-swiper li a{color: #fff;opacity: 80%;font-size: 14px;font-family: sans-serif;margin: 0 5px;background-color: black;}
+</style>
+
+
+
+<div class="add-movies-form">
+        <div class="black-header">Add Movies</div>
+        <div class="add-movies-form-section">
+            <form action="/admin/add-movies" class="movies-form" id="cdd"  enctype="multipart/form-data" method="POST" >
+                <div class="input-section">
+                    <label class="fm-details">
+                        Movie Name :</label>
+                            <input type="text" name="name" required>
+                            <br>
+                        
+                            <br>
+                            SEO Movie Name :</label> 
+                            <input type="text" name="seoname" >
+                            <br>
+                            Language :</label> 
+                            <input type="text" name="language" >
+                            <br>
+                             Type :</label> 
+                            <input type="text" name="type" >
+                            <br>
+                             Country :</label> 
+                            <input type="text" name="country" >
+                            <br>
+                            Release Date :</label> 
+                            <input type="text" name="releasedate" >
+                             Release Date No :</label> 
+                            <input type="text" name="releasedateno" >
+                            <br>
+                           Release Year :</label> 
+                            <input type="text" name="releaseyear" >
+                           <br>
+                            Ott Release Date:</label> 
+                            <input type="text" name="ottreleasedate" >
+                            Ott Release Date With No:</label> 
+                            <input type="text" name="ottreleasedateno" >
+                            <input type="text" name="ottreleasedatestamp" hidden>
+                            <input type="text" name="releasedatestamp" hidden>
+                           <br>
+                           Director :</label> 
+                            <input type="text" name="director" >
+                            Director Link :</label> 
+                            <input type="text" name="directorlink" >
+                            <br>
+                            Produced :</label> 
+                            <input type="text" name="producer" >
+                            Produced Link :</label> 
+                            <input type="text" name="producerlink" >
+                            <br>
+                            Written :</label> 
+                            <input type="text" name="written" >
+                            Written link :</label> 
+                            <input type="text" name="writtenlink" >
+                            <br>
+                            Genre :</label> 
+                            <input type="text" name="genre" >
+                            <br>
+                            Duration :</label> 
+                            <input type="text" name="duration" >
+                            <br>
+                            Budget :</label> 
+                            <input type="text" name="budget" >
+                            Profit :
+                            <input type="text" name="profit" >
+                            <br>
+                            Watch Link :</label> 
+                            <input type="text" name="watchlink" >
+                            <br>
+                            Trailor link :</label> 
+                            <input type="text" name="trailorlink" >
+                            <br>
+                            Video :</label> 
+                            <input type="text" name="video" >
+                            <br>
+                            
+                            <label>
+                        Story : </label>
+                    <textarea  name="story" cols="40" rows="6" ></textarea>
+                      <br>
+                            <label>
+                        Paragraph : </label>
+                    <textarea  name="paragraph" cols="40" rows="6" ></textarea>
+                      <br>
+                        <label>
+                        Review : </label>
+                    <textarea  name="review" cols="40" rows="6" ></textarea>
+                    <br>
+                    <br>
+
+                 <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 1 : </label>
+                    <input type="text" name="actid1" >
+                    <br>
+                    Name<input type="text" name="actorname1" >
+                    Name Line<input type="text" name="actornameline1" >
+                    <br>
+                     MV Name<input type="text" name="mvactorname1" >
+                </div>
+
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 2 : </label>
+                    <input type="text" name="actid2" >
+                    <br>
+                     Name<input type="text" name="actorname2" >
+                     Name Line<input type="text" name="actornameline2" >
+                     <br>
+                     MV Name<input type="text" name="mvactorname2" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 3 : </label>
+                    <input type="text" name="actid3" >
+                    <br>
+                     Name<input type="text" name="actorname3" >
+                     Name Line<input type="text" name="actornameline3" >
+                     <br>
+                     MV Name<input type="text" name="mvactorname3" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 4: </label>
+                    <input type="text" name="actid4" >
+                    <br>
+                     Name<input type="text" name="actorname4" >
+                     Name Line<input type="text" name="actornameline4" >
+                     <br>
+                     MV Name<input type="text" name="mvactorname4" >
+                </div>
+                 <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 5: </label>
+                    <input type="text" name="actid5" >
+                    <br>
+                     Name<input type="text" name="actorname5" >
+                     Name Line<input type="text" name="actornameline5" >
+                     <br>
+                     MV Name<input type="text" name="mvactorname5" >
+                </div>
+                 <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 6: </label>
+                    <input type="text" name="actid6" >
+                    <br>
+                     Name<input type="text" name="actorname6" >
+                     Name Line<input type="text" name="actornameline6" >
+                     <br>
+                     MV Name<input type="text" name="mvactorname6" >
+                </div>
+
+                </div>
+                  
+               
+              
+                      
+                <div class="input-section">
+                     <label class="fm-details">
+                        Movie Poster : </label>
+                    <input type="file" name="image" multiple >
+                    {{!-- <input type="file" name="cover"  > --}}
+                </div>
+                Coverr Pic :</label> 
+                            <input type="text" name="coverr" >
+                            <br>
+               
+                 
+                <button type="submit">Add</button>
+                
+                
+            </form>
+        </div>
+    </div>

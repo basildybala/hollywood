@@ -1,0 +1,250 @@
+<head>
+
+<title>{{movie.seoname}} Movie Cast, Story, Review, Photos, Videos, Watch</title>
+<meta name="title" content="{{movie.seoname}} Movie Cast, Story, Review, Photos, Videos, Watch"/>
+<meta name="description" content="{{movie.story}} {{movie.seoname}} Movie ">
+<meta name="keywords" content="{{movie.engname}}, {{movie.seoname}} {{movie.category}} Movie, {{movie.seoname}} {{movie.year}}, {{movie.seoname}} movie, {{movie.actorname1}} {{movie.seoname}}, {{movie.actorname1}} {{movie.seoname}} Movie, {{movie.seoname}} Download"/>
+<meta name="news_keywords" content="{{movie.engname}}, {{movie.seoname}} {{movie.category}} Movie, {{movie.seoname}} {{movie.year}}, {{movie.seoname}} movie, {{movie.actorname1}} {{movie.seoname}}, {{movie.actorname1}} {{movie.seoname}} Movie, {{movie.seoname}} Download"/>
+<meta property="og:title" content="{{movie.seoname}} Movie Cast, Story, Review, Photos, Videos, Watch">
+<meta property="og:site_name" content="DramaLite.Com ">
+<meta property="og:url" content="https://dramalite.com/movie/{{movie._id}}">
+<meta property="og:description" content="{{movie.name}} {{movie.actorname1}} {{movie.seoname}} Movie Story: {{movie.story}} {{movie.seoname}} Movie">
+<meta property="og:type" content="video.movie">
+<meta property="og:image" itemid="image" content="https://dramalite.com/images/movie-posters/{{movie._id}}.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="Dramalite.com">
+<meta name="twitter:title" content="{{movie.seoname}} Movie Cast, Story, Review, Photos, Videos, Watch">
+<meta name="twitter:description" content="{{movie.name}} {{movie.actorname1}} {{movie.seoname}} Movie Story: {{movie.story}} {{movie.seoname}} Movie">
+<meta name="twitter:image" content="https://dramalite.com/images/movie-posters/{{movie._id}}.jpg">
+<meta name="twitter:url" content="https://dramalite.com/movie/{{movie._id}}">
+<link rel="canonical" href="https://dramalite.com/movie/{{movie._id}}"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Movie",
+  "name": "{{movie.seoname}}",
+  "url": "https://dramalite.com/movie/{{movie._id}}",
+  "image": "https://dramalite.com/images/movie-posters/{{movie._id}}.jpg",
+  "dateCreated": "{{movie.year}}",
+  "director": "{{movie.director}}",
+  "inLanguage":"{{movie.category}}",
+  "description":"{{movie.story}}",
+  "actor":[{"@type":"Person", "url":"https://dramalite.com/actor/{{movie.actid1}}","name":"{{movie.actorname1}}"},
+           {"@type":"Person","url":"https://dramalite.com/actor/{{movie.actid2}}","name":"{{movie.actorname2}}"}]
+
+}
+</script>
+
+</head>
+<style>
+</style>
+
+<div class="main-movie">
+  
+  <div class="movie-cover-img">
+    {{#if movie.coverr}}
+  {{else}}
+    <img class="lazy-photo" data-src="/public/images/cover/{{movie.name}}cover.jpg"/>
+    <div class="img-b"></div>
+    {{/if}}
+  </div>
+  <div class="main-two">
+    <div class="movie-section">
+      <div class="movie-poster"><img class="lazy-photo" data-src="/public/images/posters/{{movie.name}}poster.jpg" alt="" srcset=""></div>
+      <div class="movie-details">
+        <h1>{{movie.name}} </h1>
+        <h3>{{movie.genre}}</h3>
+        {{#if movie.duration}}<div class="span-div"><span>{{movie.duration}} min</span><span>cc</span></div>{{/if}}
+        {{#if movie.releasedate}}<h5>{{movie.releasedate}}</h5>{{/if}}
+        <div class="movie-profit">
+          {{#if movie.budget}}<div class="budget"><img src="/public/images/other/dollar-red.png" alt="{{movie.name}} Budget" srcset=""><p>{{movie.budget}}</p></div>{{/if}}
+          {{#if movie.profit}}<div class="profit"><img src="/public/images/other/dollarsign.png" alt="{{movie.name}} Profit" style="width: 22px;" srcset=""><p>{{movie.profit}}</p></div>{{/if}}
+        </div>
+        <div class="movie-buttons">
+          {{#if movie.trailorlink}}<a href="#trailor-section" class="movie-btn" >Trailer</a>{{/if}}
+          {{#if movie.watchlink}}<a href="{{movie.watchlink}}" class="movie-btn" >Watch Movie</a>{{/if}}
+        </div>
+        
+      </div>
+    </div>
+    <div class="movie-section-two">
+      <!--------------------------More Info---------------------->
+      <div class="boder-bottom"></div>
+      <div class="head-h2"><h2>More Info</h2> </div>
+      <div class="movie-more-info">
+        <div class="more-info"> <h4>Language :</h4> <p>{{movie.language}}</p> </div>
+        <div class="more-info"> <h4>Genre :</h4> <p>{{movie.genre}}</p> </div>
+        {{#if movie.director}}<div class="more-info"> <h4>Directed By:</h4> <p>{{#if movie.directorlink}} <a href="{{movie.directorlink}}">{{movie.director}}</a>{{else}} {{movie.director}}</p> {{/if}}</div>{{/if}}
+        {{#if movie.written}}<div class="more-info"> <h4>Written By:</h4> <p>{{#if movie.writtenlink}} <a href="{{movie.writtenlink}}">{{movie.written}}</a>{{else}} {{movie.written}}</p> {{/if}}</div>{{/if}}
+        {{#if movie.producer}}<div class="more-info"> <h4>Produced By:</h4> <p>{{#if movie.producerlink}} <a href="{{movie.producerlink}}">{{movie.producer}}</a>{{else}} {{movie.producer}}</p> {{/if}}</div>{{/if}}
+        {{!-- <div class="more-info"> <h4>Written By :</h4> <p>Jhon Bruce</p> </div>
+        <div class="more-info"> <h4>Produced :</h4> <p>Sony Entertainment</p> </div> --}}
+        <div class="more-info"> <h4>Release Date :</h4>{{#if movie.releasedate}} <p>{{movie.releasedate}}</p>{{else}} <p>Date Not Confirm</p>{{/if}} </div>
+        <div class="more-info"> <h4>OTT Release Date :</h4>{{#if movie.ottreleasedate}} <p>{{movie.ottreleasedate}}</p>{{else}} <p>Date Not Confirm</p>{{/if}} </div>
+        {{!-- <div class="more-info"> <h4>Ott Release Date :</h4> <p>23 10 2022</p></div> --}}
+        
+      </div>
+
+       <!------------------------Movie Cast------------------->
+       <div class="boder-bottom"></div>
+       <div class="movie-cast">
+        <div class="head-h2"><h2>Cast</h2> </div>
+        <div class="swiper">
+          <div class="cast-swipe">
+            {{#if movie.actorname1}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid1}}">
+                {{#if movie.actornameline1}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" >{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname1}}poster.jpg" alt="{{movie.actorname1}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname1}}</h4><p>{{movie.actornameline1}}</p>
+              </a>
+            </div>
+            {{/if}}
+            {{#if movie.actorname2}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid2}}">
+                {{#if movie.actornameline2}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" alt="" srcset="">{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname2}}poster.jpg" alt="{{movie.actorname2}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname2}}</h4><p>{{movie.mvactorname2}}</p>
+              </a>
+            </div>
+            {{/if}}
+            {{#if movie.actorname3}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid3}}">
+                {{#if movie.actornameline3}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" alt="" srcset="">{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname3}}poster.jpg" alt="{{movie.actorname3}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname3}}</h4><p>{{movie.mvactorname3}}</p>
+              </a>
+            </div>
+            {{/if}}
+            {{#if movie.actorname4}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid4}}">
+                {{#if movie.actornameline4}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" alt="" srcset="">{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname4}}poster.jpg" alt="{{movie.actorname4}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname4}}</h4><p>{{movie.mvactorname4}}</p>
+              </a>
+            </div>
+            {{/if}}
+            {{#if movie.actorname5}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid5}}">
+                {{#if movie.actornameline5}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" alt="" srcset="">{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname5}}poster.jpg" alt="{{movie.actorname5}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname5}}</h4><p>{{movie.mvactorname5}}</p>
+              </a>
+            </div>
+            {{/if}}
+            {{#if movie.actorname6}}
+            <div class="cast">
+              <a href="/profile/{{movie.actid6}}">
+                {{#if movie.actornameline6}} <img class="lazy-photo" data-src="/public/images/other/avatar.jpg" >{{else}}<img class="lazy-photo" data-src="/public/images/posters/{{movie.actorname6}}poster.jpg" alt="{{movie.actorname6}}poster.jpg" >{{/if}}
+                <h4>{{movie.actorname6}}</h4><p>{{movie.mvactorname6}}</p>
+              </a>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <!--------------------------Synopsis---------------------->
+      <div class="boder-bottom"></div>
+      <div class="synopsis">
+        <div class="head-h2"><h2>Synopsis</h2> </div>
+        <h6>{{movie.story}}</h6>
+        <p>{{movie.paragraph}}</p>
+        <div class="head-h2"><h2>Review</h2> </div>
+        <h6>{{movie.review}}</h6>
+      </div>
+      
+     
+      <!--------------------------Images---------------------->
+      <div class="boder-bottom"></div>
+      <div class="images-sub"> <div class="head-h2"><h2>Images</h2> </div>
+      <a href="/images/{{movie._id}}">View all</a>
+       </div>
+     
+
+      <div class="images-section">
+        {{#each photos}}
+        <div class="images">
+          <a href="/{{this}}"><img class="lazy-photo" data-src="/{{this}}" alt="" srcset=""></a>
+        </div>
+        {{/each}}
+
+      </div>
+      <!--------------------------Trailer---------------------->
+      <div class="boder-bottom"></div>
+      <div class="head-h2" id="trailor-section"><h2>Videos</h2> </div>
+      <div class="video-row">
+        <iframe class="lazy-photo" data-src="{{movie.trailorlink}}"frameborder="0" allow="autoplay"allowfullscreen></iframe>
+      </div>
+      {{#if movie.video}}
+      <div class="video-player">
+        <video width="300" height="400px" controls>
+          <source class="lazy-photo" data-src="oscar-movies/d.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+      </div>
+      {{/if}}
+      
+     
+  </div>
+  </div>
+  <!--------------------------Next Theater Releases---------------------->
+ <div class="boder-bottom"></div>
+<div class="images-sub"> <div class="head-h2"><h2>Next Theater Releases</h2> </div>
+      <a href="/upcoming-movies">View all</a>
+       </div>
+      <div class="swiper">
+        <div class="cast-swipe">
+          {{#each upTmovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+
+
+      <!--------------------------Next Ott Releases---------------------->
+ <div class="boder-bottom"></div>
+<div class="images-sub"> <div class="head-h2"><h2>Next Ott Releases</h2> </div>
+      <a href="/upcoming-ott-movies">View all</a>
+       </div>
+      <div class="swiper">
+        <div class="cast-swipe">
+          {{#each upOmovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+            <!-------------------------- Releases Movies---------------------->
+ <div class="boder-bottom"></div>
+<div class="images-sub"> <div class="head-h2"><h2>Released Movies <i class="fa-solid fa-magnifying-glass"></i></h2> </div>
+      <a href="/images/{{movie._id}}">View all</a>
+       </div>
+      <div class="swiper">
+        <div class="cast-swipe">
+          {{#each rmovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+  
+</div>
+
+
+

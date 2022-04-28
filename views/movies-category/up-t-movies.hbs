@@ -1,0 +1,81 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+</head>
+
+<style>
+  .table-img{
+    width: 110px;
+    height: 160px;
+    object-fit: cover;
+  }
+  .mv-body{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+  .mv-body h1{
+    margin: 4px 0;font-family: 'Poppins';font-size: 13Px;opacity: 80%;font-weight: 500;letter-spacing: 0.5px;color: #fff;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100px;text-align: center;
+  }
+  .mv-body p{margin:0;font-family: 'Poppins';font-size: 9Px;opacity: 60%;font-weight: 400;color: #fff;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100px;text-align: center;}
+  .table{
+    width:100%;text-align:left;background-color: var(--rich-black);
+  }
+ table.dataTable tbody tr{
+   background-color: var(--rich-black);
+ }
+ .t-body{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;justify-content: center;
+ }
+table.dataTable thead th{border-bottom: 1px solid var(--light-text)}
+ 
+ .fst-table-header h1{font-size: 19px;font-family: 'Poppins', sans-serif;font-weight: 500;margin: 0;overflow: hidden;max-height: 26px;text-overflow: ellipsis;white-space: nowrap;text-align: center;}
+ .dataTables_info{display: none;}
+.dataTables_length{display: flex;justify-content: flex-start;}
+.dataTables_length label{color: #fff;font-family: 'Poppins', sans-serif;font-weight: 500;opacity: 80%;font-size: 14px;}
+ .dataTables_length select {border: 1px solid #fff;padding: 3px;color: #fff;}
+ .dataTables_filter {display: flex;justify-content: flex-end;}
+ .dataTables_filter label{color: #fff;font-family: 'Poppins', sans-serif;font-weight: 500;opacity: 80%;font-size: 14px;}
+ .dataTables_filter input{color: #fff;}
+
+</style>
+
+
+
+      <!-------------------------Movies LIst category------------------------------>
+<div class="boder-bottom"></div>
+
+<table id="sample-table" class="table" style="">
+  <thead>
+  <tr>
+    <th  class="fst-table-header"><h1>Upcoming Movies List</h1</th>
+    
+    {{!-- <th class="nd-table-header"><h1>Movies List</h1></th> --}}
+  </tr>
+  
+  </thead>
+  
+  <tbody class="t-body">
+  {{#each upallmovies}}
+  <tr>
+    <td><a href="/movie/{{this._id}}" class="mv-body" title="{{this.name}} Movie Details Page"><img class="table-img lazy-photo" data-src="/public/images/posters/{{this.name}}poster.jpg" alt="{{this.name}} Movie Poster" >
+     <h1>{{this.name}}</h1>
+     <p>{{this.releasedate}}</p>
+    </div></a> </td>
+    {{!-- <td class="td-class">
+      <div class="movies-table">
+        <div class="t-col"><a href="/movie/{{this._id}}"><h2 title="{{this.name}} Movie Page">{{this.name}}</h2></a></div> 
+ 
+       </div>
+    </td> --}}
+  </tr>
+  {{/each}}
+  </tbody>
+</table>
+</div>
+
+<script>
+
+  $(function(){
+    $('#sample-table').DataTable();
+  });
+</script>

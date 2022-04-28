@@ -1,0 +1,116 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+   <title>Show Movies</title>
+   <style>
+     .admin-header{
+    background-color: black;
+    color: white;
+    height: 28px;
+    font-weight: 700;
+  }
+  .td-class{
+    border-bottom: 1px solid black;
+    color: #070807;
+    font-size: 13px;
+    font-family: 'Varela Round';
+    font-weight: 700;
+  }
+  .td-class a{
+      text-decoration: none;
+      margin-right: 10px;
+      color: red;
+      font-weight: bold;
+  } 
+  <style>
+  .table-img{
+    width: 110px;
+    height: 160px;
+    object-fit: cover;
+  }
+  .mv-body{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+  .td-class h1{
+    margin: 4px 0;font-family: 'Poppins';font-size: 13Px;opacity: 80%;font-weight: 500;letter-spacing: 0.5px;color: #fff;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100px;text-align: center;
+  }
+  .table{
+    width:100%;text-align:left;background-color: var(--rich-black);
+  }
+ table.dataTable tbody tr{
+   background-color: var(--rich-black);
+ }
+ .t-body{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;justify-content: center;
+ }
+table.dataTable thead th{border-bottom: 1px solid var(--light-text)}
+ 
+ .fst-table-header h1{font-size: 19px;font-family: 'Poppins', sans-serif;font-weight: 500;margin: 0;overflow: hidden;max-height: 26px;text-overflow: ellipsis;white-space: nowrap;text-align: center;}
+ .dataTables_info{display: none;}
+.dataTables_length{display: flex;justify-content: flex-start;}
+.dataTables_length label{color: #fff;font-family: 'Poppins', sans-serif;font-weight: 500;opacity: 80%;font-size: 14px;}
+ .dataTables_length select {border: 1px solid #fff;padding: 3px;color: #fff;}
+ .dataTables_filter {display: flex;justify-content: flex-end;}
+ .dataTables_filter label{color: #fff;font-family: 'Poppins', sans-serif;font-weight: 500;opacity: 80%;font-size: 14px;}
+ .dataTables_filter input{color: #fff;}
+.nav-swiper{display: flex;}
+ .nav-swiper li a{color: #fff;opacity: 80%;font-size: 14px;font-family: sans-serif;margin: 0 5px;background-color: black;}
+</style>
+   </style>
+   
+   <div class="nav-bar-sticky ">
+        
+        <ul>
+          <span>Header</span>
+          <div class="nav-swiper">
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Admin Home</a></li>
+          <li><a href="/admin/show-admin-movies">Show All Movies Admin</a></li>
+          <li><a href="/admin/add-movies">Add Movies</a></li>
+          <li><a href="/admin/show-actor">Show All Actors</a></li>
+          <li><a href="/admin/add-actor">Add Actor</a></li>
+          <li><a href="/admin/add-nextweek-movies">Add Next Week</a></li>
+          <li><a href="/admin/add-nextweek-movies">Show Next Week Movies</a></li>
+          <li><a href="/admin/add-last-update">Add Last Update</a></li>
+          <li><a href="/admin/show-last-update">Show Last Update</a></li>
+          <li><a href="/admin/add-cover">Add Cover</a></li>
+          <li><a href="/admin/Show-cover">Show Cover</a></li>
+         
+        </div>
+        </ul>
+  </div>
+<table id="sample-table" style="width:100%;text-align:left">
+  <thead>
+  <tr>
+    <th class="admin-header">Movies Name</th>
+    {{!-- <th class="admin-header"> Language</th> --}}
+    <th class="admin-header" style="width: 60px;"> ID</th>
+    <th class="admin-header"> Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each movies}}
+  <tr>
+    <td class="td-class"> <h1>{{this.name}}</h1> </td>
+    {{!-- <td class="td-class">{{this.category}}</td> --}}
+     <td class="td-class"><input style="width: 90%;" type="text" value="{{this._id}}"> </td>
+    <td class="td-class">
+      
+        <a style="color: green;" href="/admin/edit-movies/{{this._id}}"><i class="fas fa-user-edit"></i>Edit</a>
+        {{!-- <a href="/admin/delete-movies/{{this._id}}" onclick="return confirm('Are You SHure to Delete = {{this.name}}')"><i class="fas fa-trash"></i></a> --}}
+        <a href="/admin/delete-movies/{{this._id}}" onclick="return confirm('Are You SHure to Delete = {{this.name}}')">Delete<i class="fas fa-trash"></i></a>
+        <a href="/admin/delete-images/{{this._id}}" >IMG</a>
+     </td>
+  </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+
+
+<script>
+
+  $(function(){
+    $('#sample-table').DataTable();
+  });
+</script>

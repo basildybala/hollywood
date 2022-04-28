@@ -1,0 +1,236 @@
+
+<title>Edit Movies</title>
+<style>
+    .add-movies-form-section{
+    margin-top: 10px;
+}
+.movies-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 10px;
+}
+.fm-details{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.input-section{
+    margin: 5px;
+}
+textarea{
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+}
+.input-section input{
+    height: 25px;
+    width: 250px;
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+}
+.movies-form button{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    width: 113px;
+    height: 32px;
+    border-radius: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 7px;
+}
+.nav-swiper{display: flex;}
+ .nav-swiper li a{color: #fff;opacity: 80%;font-size: 14px;font-family: sans-serif;margin: 0 5px;background-color: black;}
+</style>
+<div class="add-movies-section">
+          <div class="nav-bar-sticky ">
+        
+        <ul>
+          <span>Header</span>
+          <div class="nav-swiper">
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Admin Home</a></li>
+          <li><a href="/admin/show-admin-movies">Show All Movies Admin</a></li>
+          <li><a href="/admin/add-movies">Add Movies</a></li>
+          <li><a href="/admin/show-actor">Show All Actors</a></li>
+          <li><a href="/admin/add-actor">Add Actor</a></li>
+          <li><a href="/admin/add-nextweek-movies">Add Next Week</a></li>
+          <li><a href="/admin/add-nextweek-movies">Show Next Week Movies</a></li>
+          <li><a href="/admin/add-last-update">Add Last Update</a></li>
+          <li><a href="/admin/show-last-update">Show Last Update</a></li>
+          <li><a href="/admin/add-cover">Add Cover</a></li>
+          <li><a href="/admin/Show-cover">Show Cover</a></li>
+        </div>
+        </ul>
+      </div>
+
+<div class="add-movies-form">
+        <div class="black-header">Edit Movies</div>
+        <div class="add-movies-form-section">
+            <form action="/admin/edit-movies/{{movie._id}}" class="movies-form" enctype="multipart/form-data" method="POST">
+                <div class="input-section">
+                    <label class="fm-details">
+                        Movie Name :</label>
+                            <input type="text" name="name" value="{{movie.name}}" required>
+                             <br>
+                            Seo Name :</label> 
+                            <input type="text" name="seoname" value="{{movie.seoname}}" >
+                             <br>
+                             Language :</label> 
+                            <input type="text" name="language" value="{{movie.language}}" >
+                            <br>
+                             Type :</label> 
+                            <input type="text" name="type" value="{{movie.type}}">
+                            <br>
+                             Country :</label> 
+                            <input type="text" name="country" value="{{movie.country}}" >
+                            <br>
+                            Release Date :</label> 
+                            <input type="text" name="releasedate" value="{{movie.releasedate}}" >
+                            Release Date No:</label> 
+                            <input type="text" name="releasedateno" value="{{movie.releasedateno}}" >
+                            <br>
+                            Release Year :</label> 
+                            <input type="text" name="releaseyear"value="{{movie.releaseyear}}" >
+                           <br>
+                           Ott Release Date:</label> 
+                            <input type="text" name="ottreleasedate" value="{{movie.ottreleasedate}}">
+                            Ott Release Date No:</label> 
+                            <input type="text" name="ottreleasedateno" value="{{movie.ottreleasedateno}}">
+
+                            <input type="text" name="releasedatestamp" value="{{movie.releasedatestamp}}" hidden>
+                            <input type="text" name="ottreleasedatestamp" value="{{movie.ottreleasedatestamp}}" hidden>
+                           <br>
+                           Director :</label> 
+                            <input type="text" name="director" value="{{movie.director}}" >
+                            Director Link :</label> 
+                            <input type="text" name="directorlink" value="{{movie.directorlink}}">
+                            <br>
+                            Produced :</label> 
+                            <input type="text" name="producer" value="{{movie.producer}}">
+                            Produced Link :</label> 
+                            <input type="text" name="producerlink" value="{{movie.producerlink}}">
+                            <br>
+                            Written :</label> 
+                            <input type="text" name="written" value="{{movie.written}}" >
+                            Written link :</label> 
+                            <input type="text" name="writtenlink" value="{{movie.writtenlink}}">
+                            <br>
+                            Genre :</label> 
+                            <input type="text" name="genre" value="{{movie.genre}}">
+                            <br>
+                            Duration :</label> 
+                            <input type="text" name="duration" value="{{movie.duration}}">
+                            <br>
+                            Budget :</label> 
+                            <input type="text" name="budget" value="{{movie.budget}}">
+                            Profit :
+                            <input type="text" name="profit" value="{{movie.profit}}">
+                            <br>
+                            Watch Link :</label> 
+                            <input type="text" name="watchlink" value="{{movie.watchlink}}">
+                            <br>
+                            Trailor link :</label> 
+                            <input type="text" name="trailorlink" value="{{movie.trailorlink}}">
+                            <br>
+                            Video :</label> 
+                            <input type="text" name="video" value="{{movie.video}}">
+                            <br>
+                            
+                            <label>
+                        Story : </label>
+                    <textarea  name="story" cols="40" rows="6" value="{{movie.story}}">{{movie.story}}</textarea>
+                      <br>
+                            <label>
+                        Paragraph : </label>
+                    <textarea  name="paragraph" cols="40" rows="6" value="{{movie.paragraph}}">{{movie.paragraph}}</textarea>
+                      <br>
+                        <label>
+                        Review : </label>
+                    <textarea  name="review" cols="40" rows="6" value="{{movie.review}}">{{movie.review}}</textarea>
+                    <br><br>
+                      <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 1 : </label>
+                    <input type="text" name="actid1" value="{{movie.actid1}}" >
+                     Name<input type="text" name="actorname1" value="{{movie.actorname1}}" >
+                     Name Line<input type="text" name="actornameline1" value="{{movie.actornameline1}}">
+                     MV Name<input type="text" name="mvactorname1" value="{{movie.mvactorname1}}">
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 2 : </label>
+                    <input type="text" name="actid2" value="{{movie.actid2}}">
+                     Name<input type="text" name="actorname2" value="{{movie.actorname2}}">
+                     Name Line<input type="text" name="actornameline2" value="{{movie.actornameline2}}">
+                     MV Name<input type="text" name="mvactorname2"value="{{movie.mvactorname2}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 3 : </label>
+                    <input type="text" name="actid3" value="{{movie.actid3}}">
+                     Name<input type="text" name="actorname3" value="{{movie.actorname3}}">
+                     Name Line<input type="text" name="actornameline3" value="{{movie.actornameline3}}">
+                     MV Name<input type="text" name="mvactorname3" value="{{movie.mvactorname3}}">
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 4: </label>
+                    <input type="text" name="actid4" value="{{movie.actid4}}">
+                     Name<input type="text" name="actorname4" value="{{movie.actorname4}}">
+                     Name Line<input type="text" name="actornameline4" value="{{movie.actornameline4}}">
+                     MV Name<input type="text" name="mvactorname4" value="{{movie.mvactorname4}}">
+                </div>
+                 <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 5: </label>
+                    <input type="text" name="actid5" value="{{movie.actid5}}">
+                     Name<input type="text" name="actorname5" value="{{movie.actorname5}}">
+                     Name Line<input type="text" name="actornameline5" value="{{movie.actornameline5}}">
+                     MV Name<input type="text" name="mvactorname5" value="{{movie.mvactorname5}}">
+                </div>
+                 <div class="input-section">
+                    <label class="fm-details">
+                        ActroID 6: </label>
+                    <input type="text" name="actid6" value="{{movie.actid6}}">
+                     Name<input type="text" name="actorname6" value="{{movie.actorname6}}">
+                     Name Line<input type="text" name="actornameline6" value="{{movie.actornameline6}}">
+                     MV Name<input type="text" name="mvactorname6" value="{{movie.mvactorname6}}" >
+                </div>
+                Coverr :</label> 
+                            <input type="text" name="coverr" value="{{movie.coverr}}">
+                            <br>
+                            
+
+                </div>
+                 <button type="submit">Edit Movie</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<form action="/admin/edit-movies-image/{{movie._id}}" class="movies-form" enctype="multipart/form-data" method="POST">
+    
+               <input type="text" name="name" value="{{movie.name}}" >
+                <input type="file" name="image" multiple>
+
+                <button type="submit">Add Image</button>
+                
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+<title>Edit actor</title>
+<style>
+    .add-movies-form-section{
+    margin-top: 10px;
+}
+.movies-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 10px;
+}
+.fm-details{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.input-section{
+    margin: 5px;
+}
+.input-section input {
+    height: 25px;
+    width: 250px;
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+}
+textarea{
+    border: 2px solid #5c00ff;
+    background-color: #e7dddd;
+    color: red;
+}
+.movies-form button{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    width: 113px;
+    height: 32px;
+    border-radius: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 7px;
+}
+.nav-swiper{display: flex;}
+ .nav-swiper li a{color: #fff;opacity: 80%;font-size: 14px;font-family: sans-serif;margin: 0 5px;background-color: black;}
+</style>
+
+<div class="add-movies-section">
+         <div class="nav-bar-sticky ">
+        
+        <ul>
+          <span>Header</span>
+          <div class="nav-swiper">
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Admin Home</a></li>
+          <li><a href="/admin/show-admin-movies">Show All Movies Admin</a></li>
+          <li><a href="/admin/add-movies">Add Movies</a></li>
+          <li><a href="/admin/show-actor">Show All Actors</a></li>
+          <li><a href="/admin/add-actor">Add Actor</a></li>
+          <li><a href="/admin/add-nextweek-movies">Add Next Week</a></li>
+          <li><a href="/admin/add-nextweek-movies">Show Next Week Movies</a></li>
+          <li><a href="/admin/add-last-update">Add Last Update</a></li>
+          <li><a href="/admin/show-last-update">Show Last Update</a></li>
+          <li><a href="/admin/add-cover">Add Cover</a></li>
+          <li><a href="/admin/Show-cover">Show Cover</a></li>
+        </div>
+        </ul>
+      </div>
+    <div class="add-movies-form">
+         <div class="black-header">Edit Actor</div>
+        <div class="add-movies-form-section">
+            <form action="/admin/edit-actor/{{actor._id}}" class="movies-form" enctype="multipart/form-data" method="POST">
+                <div class="input-section">
+                    <label class="fm-details">
+                        Actor Name :</label>
+                            <input type="text" name="name" value="{{actor.name}}" required>
+
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Language : </label>
+                    <input type="text" name="language" value="{{actor.language}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Birthday : </label>
+                    <input type="text" name="birthday" value="{{actor.birthday}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Year Active : </label>
+                    <input type="text" name="yearactive" value="{{actor.yearactive}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Occupation :</label>
+                    <input type="text" name="occupation" value="{{actor.occupation}}">
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Instagram Link : </label>
+                    <input type="text" name="instalink" value="{{actor.instalink}}" >
+                </div>
+                 <div class="input-section">
+                    <label class="fm-details">
+                        Twitter Link : </label>
+                    <input type="text" name="twitlink" value="{{actor.twitlink}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Video : </label>
+                    <input type="text" name="video" value="{{actor.video}}" >
+                </div>
+                <div class="input-section">
+                    <label class="fm-details">
+                        Biography : </label>
+                    {{!-- <input type="text" name="biography" value="{{actor.biography}}"> --}}
+                     <textarea  name="biography"  value="{{actor.biography}}" cols="40" rows="6" >{{actor.biography}}</textarea>
+                </div>
+                <button type="submit">Edit Actor</button>
+               
+            </form>
+        </div>
+    </div>
+</div>
+<form action="/admin/edit-actor-image/{{actor._id}}" class="movies-form" enctype="multipart/form-data" method="POST">
+    
+               <input type="text" name="name" value="{{actor.name}}" >
+                <input type="file" name="image" multiple>
+
+                <button type="submit">Add Image</button>
+                
+</form>

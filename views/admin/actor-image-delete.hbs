@@ -1,0 +1,57 @@
+<h1>{{actor.name}} Delete Images</h1>
+<style>
+  .movies-img img{
+    width: 120px;
+    object-fit: cover;
+  }
+  .btn{
+    width: 50px;height: 30px;background-color: red;color: azure;
+  }
+  .movies-form{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .all{
+    display: flex;flex-direction: column;align-items: center;margin: 5px;
+  }
+</style>
+
+{{!-- {{#each movie.Spl}}
+        <a href="/admin/delete-images/{{movie._id}}" class="movies-list" title="{{this.name}} Page">
+          <div class="movies-img">
+            <img  data-src="/{{this}}" class="lazy-photo" alt="{{this.name}}.jpg" >
+          </div>
+        <div class="movies-body">
+          <h4>{{@index}}</h4>
+          
+        </div>  
+        </a>
+        
+{{/each}} --}}
+
+
+<form action="/admin/delete-images/{{movie._id}}" class="movies-form" enctype="multipart/form-data" method="POST">
+    {{#each actor.photos}}
+    <div class="all">
+              <div class="movies-img">
+            <img  data-src="/{{this}}" class="lazy-photo" alt="{{this.name}}.jpg" >
+          </div>
+        <div class="movies-body">
+          {{!-- <h4>{{@index}}</h4> --}}
+          <button class="btn" name="index" value="{{this}}">CLcik</button>
+        </div> 
+        </div> 
+        
+{{/each}}
+               
+                
+            </form>
+
+
+
+
+
+
+
+
+            

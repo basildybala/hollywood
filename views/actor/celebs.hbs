@@ -1,0 +1,205 @@
+<title>{{actor.actorname}} ({{actor.occupation}}) Wiki, Biography, Age, Images, Movies list</title>
+<meta name="description" content="{{actor.biography}}">
+<meta property="og:site_name" content="DramaLite.Com Actor Section ">
+<meta property="og:url" content="https://dramalite.com/celebs/{{celebs._id}}">
+<meta property="og:description" content="{{actor.biography}}">
+<meta property="og:type" content="video.movie">
+<meta property="og:image" content="https://dramalite.com/images/actor-posters/{{actor._id}}.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "person",
+  "name": "{{actor.actorname}}",
+  "url": "https://dramalite.com/actor/{{actor._id}}",
+  "image": "https://dramalite.com/images/actor-posters/{{actor._id}}.jpg",
+  "birthDate":"{{actor.age}}",
+  "givenName":"{{actor.actorname}}",
+  "sameAs": "{{actor.instalink}}",
+  "jobTitle": "Actors",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Film Industry"
+  }  
+}
+</script>
+<style>
+  
+.social-icons{background-color:#0f0f13;height:40px;width:150px;border-radius:5px;display:flex;align-items:center;justify-content:space-around;box-shadow:0 0 2px #fff}
+.fa-instagram{font-size:30px;color:#cd486b;margin-left:5px}
+.fa-twitter{font-size:30px;color:#1DA1F2;margin-left:5px}
+.fa-info-circle{color:var(--main-blue-color);margin:1px 2px 0 0}
+.images-section{justify-content: center;}
+
+</style>
+
+
+
+<div class="celeb-section">
+  <div class="boder-bottom"></div>
+  <div class="celeb">
+    <h1>{{celebs.name}}</h1>
+    <img class="lazy-photo" data-src="/public/images/posters/{{celebs.name}}poster.jpg" alt="" srcset="">
+  </div>
+  {{#if celebs.instalink}}
+  <div class="actor-social-media"> 
+            <div class="social-icons">
+              {{#if celebs.instalink}}<a href="{{celebs.instalink}}" class="round-40 connect-instagramm"><i class="fa fa-instagram" aria-hidden="true"></i></a>{{/if}}
+              {{#if celebs.twitlink}}<a href="{{celebs.twitlink}}" class="round-40 connect-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>{{/if}}
+           </div>
+           </div>
+   {{/if}}        
+             <div class="boder-bottom"></div>
+  <div class="head-h2"><h2>More Info</h2> </div>
+      <div class="movie-more-info">
+        <div class="more-info"> <h4>Name :</h4> <p>{{celebs.name}}</p> </div>
+        {{#if celebs.birthday}}<div class="more-info"> <h4>Age :</h4> <p id="age"></p> </div>{{/if}}
+        {{#if celebs.birthday}}<div class="more-info"> <h4>Born:</h4> <p>{{celebs.birthday}}</p> </div>{{/if}}
+        <div class="more-info"> <h4>Ocuupation :</h4> <p>{{celebs.occupation}}e</p> </div>
+        <div class="more-info"> <h4>Year Of Active :</h4>{{#if celebs.yearactive}} <p>{{celebs.yearactive}}</p>{{else}}<p>Nan</p>{{/if}} </div> 
+      </div>
+   <!--------------------------Biography---------------------->
+   <div class="boder-bottom"></div>
+   <div class="synopsis">
+     <div class="head-h2"><h2>Biography</h2> </div>
+     <h6>{{celebs.biography}}</h6>
+  </div>
+  <!--------------------------Images---------------------->
+  <div class="boder-bottom"></div>
+  <div class="images-sub"> <div class="head-h2"><h2>Images</h2> </div>
+  <a href="/celeb-images/{{celebs._id}}">View all</a>
+   </div>
+ 
+
+  <div class="images-section">
+    {{#each celebs.photos}}
+        <div class="images">
+          <a href="/{{this}}"><img class="lazy-photo" data-src="/{{this}}" alt="" srcset=""></a>
+        </div>
+        {{/each}}
+  </div>
+ {{#if celeb.video}}
+   <!--------------------------Trailer---------------------->
+   <div class="boder-bottom"></div>
+   <div class="head-h2"><h2>Video</h2> </div>
+   <div class="video-player">
+     <video width="300" height="400px" controls>
+       <source src="/public/videos/{{celebs.name}}poster.mp4" type="video/mp4">
+     Your browser does not support the video tag.
+     </video>
+   </div>
+   {{/if}}
+  <!--------------------------Films---------------------->
+   <div class="boder-bottom"></div>
+   <div class="head-h2"><h2>Movies List</h2> </div>
+   <div class="images-section">
+     {{#each celebMovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+   </div>
+
+
+
+
+
+
+
+
+
+</div>
+   <!-------------------------- Releases Movies---------------------->
+ <div class="boder-bottom"></div>
+<div class="images-sub"> <div class="head-h2"><h2>Released Movies </h2> </div>
+      <a href="/images/{{movie._id}}">View all</a>
+       </div>
+      <div class="swiper">
+        <div class="cast-swipe">
+          {{#each nextRmovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+  
+</div>
+   <!-------------------------- Latest update movies Movies---------------------->
+ <div class="boder-bottom"></div>
+<div class="images-sub"> <div class="head-h2"><h2>Latest Update </h2> </div>
+      <a href="/images/{{movie._id}}">View all</a>
+       </div>
+      <div class="swiper">
+        <div class="cast-swipe">
+          {{#each latestupdatemovies}}
+          <a href="/movie/{{this._id}}">
+          <div class="movie-s">
+            <img src="/public/images/posters/{{this.name}}poster.jpg" alt="">
+            <h2>{{this.name}}</h2>
+            <p>{{this.releasedate}}</p>
+          </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+  
+</div>
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+  
+   <script>
+
+
+
+        var DOB = "{{celebs.birthday}}";
+        var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
+        var millisecondsBetweenNowAnd1970 = Date.now();
+        var ageInMilliseconds = millisecondsBetweenNowAnd1970-millisecondsBetweenDOBAnd1970;
+        //--We will leverage Date.parse and now method to calculate age in milliseconds refer here https://www.w3schools.com/jsref/jsref_parse.asp
+      
+          var milliseconds = ageInMilliseconds;
+          var second = 1000;
+          var minute = second*60;
+          var hour = minute*60;
+          var day = hour*24;
+          var month = day*30; 
+        /*using 30 as base as months can have 28, 29, 30 or 31 days depending a month in a year it itself is a different piece of comuptation*/
+          var year = day*365;
+      
+        //let the age conversion begin
+        var years = Math.round(milliseconds/year);
+      
+      
+          
+        function printResults(){
+          var message = +years+""
+          document.getElementById('age').innerHTML = message;
+        }
+      
+        //window.onscroll = printResults;
+        printResults()
+
+  
+  </script>
